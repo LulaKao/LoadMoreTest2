@@ -3,12 +3,10 @@ package com.example.loadmoretest2;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 

@@ -114,9 +114,7 @@ public class DataAdapter extends RecyclerView.Adapter {
         System.out.println("==== DataAdapter setOnLoadMoreListener ====");
         this.onLoadMoreListener = onLoadMoreListener;
     }
-
-
-    //
+    
     public static class StudentViewHolder extends RecyclerView.ViewHolder {
         public TextView tvName;
 
