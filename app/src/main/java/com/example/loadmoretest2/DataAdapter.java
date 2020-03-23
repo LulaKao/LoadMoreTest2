@@ -6,11 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
 
 public class DataAdapter extends RecyclerView.Adapter {
@@ -27,6 +24,10 @@ public class DataAdapter extends RecyclerView.Adapter {
     public DataAdapter(List<Student> students, RecyclerView recyclerView) {
         studentList = students;
 
+        System.out.println("==== Adapter DataAdapter ====");
+        System.out.println(recyclerView.getLayoutManager() instanceof LinearLayoutManager);
+        System.out.println(recyclerView.getLayoutManager());
+
         if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
 
             final LinearLayoutManager linearLayoutManager = (LinearLayoutManager) recyclerView
@@ -40,6 +41,8 @@ public class DataAdapter extends RecyclerView.Adapter {
                                                int dx, int dy) {
                             super.onScrolled(recyclerView, dx, dy);
 
+                            System.out.println("==== Adapter DataAdapter recyclerView.addOnScrollListener ====");
+
                             totalItemCount = linearLayoutManager.getItemCount();
                             lastVisibleItem = linearLayoutManager
                                     .findLastVisibleItemPosition();
@@ -47,6 +50,7 @@ public class DataAdapter extends RecyclerView.Adapter {
                                     && totalItemCount <= (lastVisibleItem + visibleThreshold)) {
                                 // End has been reached
                                 // Do something
+                                System.out.println("==== Adapter DataAdapter recyclerView.addOnScrollListener Do something ====");
                                 if (onLoadMoreListener != null) {
                                     onLoadMoreListener.onLoadMore();
                                 }
@@ -107,6 +111,7 @@ public class DataAdapter extends RecyclerView.Adapter {
     }
 
     public void setOnLoadMoreListener(OnLoadMoreListener onLoadMoreListener) {
+        System.out.println("==== DataAdapter setOnLoadMoreListener ====");
         this.onLoadMoreListener = onLoadMoreListener;
     }
 
