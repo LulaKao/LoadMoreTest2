@@ -39,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
         // use a linear layout manager
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        System.out.println(mRecyclerView.getLayoutManager() instanceof LinearLayoutManager);
+        System.out.println(mRecyclerView.getLayoutManager());
+
         // create an Object for Adapter
         mAdapter = new DataAdapter(studentList, mRecyclerView);
 
@@ -59,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
         mAdapter.setOnLoadMoreListener(new OnLoadMoreListener() {
             @Override
             public void onLoadMore() {
+                System.out.println("==== mAdapter.setOnLoadMoreListener ====");
+
                 //add null , so the adapter will check view_type and show progress bar at bottom
                 studentList.add(null);
                 mAdapter.notifyItemInserted(studentList.size() - 1);
@@ -88,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     // load initial data
     private void loadData() {
         for (int i = 1; i <= 20; i++) {
-            studentList.add(new Student("Student " + i, "androidstudent" + i + "@gmail.com"));
+            studentList.add(new Student("Teacher " + i, "AndroidTeacher" + i + "@gmail.com"));
 
         }
     }
